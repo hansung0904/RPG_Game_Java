@@ -1,3 +1,5 @@
+import exception.UserIdException;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -5,14 +7,17 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class Client {
+/**
+ * The class in which the client plays the game.
+ */
+public class MyGameClient {
     private final String id;
 
     public MyGameClient(String id) {
         this.id = id;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UserIdException {
 
         if (hasNotArgs(args)) {
             throw new UserIdException("USAGE: java MyChatClient {id}");
